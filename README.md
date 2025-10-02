@@ -69,7 +69,7 @@
 
 | Ngày      | Nhiệm vụ                          | Người phụ trách | Tiến độ |
 |-----------|-----------------------------------|-----------------|---------|
-| 1 – 2     | Bước 1: Chiến lược sinh mật khẩu  | Tuấn Anh        | [ ]     |
+| 1 – 2     | Bước 1: Chiến lược sinh mật khẩu  | Tuấn Anh        | [x]     |
 | 3 – 4     | Bước 2: Thuật toán chấm điểm      | Kim Anh         | [X]     |
 | 5 – 6     | Bước 3: Lưu trữ an toàn           | Tuấn Anh        | [ ]     |
 | 7         | Bước 4: Trực quan hóa độ mạnh     | Kim Anh         | [ ]     |

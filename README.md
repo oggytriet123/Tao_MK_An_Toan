@@ -10,7 +10,7 @@
 
 ## 🔑 Bước 1: Chiến lược sinh mật khẩu (Ngày 1–2) [Tuấn Anh]
 - [x] Viết code sinh mật khẩu random với `secrets.choice`
-- [ ] Thêm option: chữ hoa, chữ thường, số, ký tự đặc biệt
+- [x] Thêm option: chữ hoa, chữ thường, số, ký tự đặc biệt
 - [ ] Loại bỏ ký tự dễ nhầm (0,O,1,l,I)
 - [ ] Thêm mode: pronounceable, passphrase
 - [ ] Hàm tính entropy (bits) để đo độ mạnh

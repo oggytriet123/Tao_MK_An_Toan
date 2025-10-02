@@ -18,11 +18,11 @@
 ---
 
 ## 🛡 Bước 2: Thuật toán chấm điểm độ mạnh (Ngày 3–4) [Kim Anh]
-- [ ] Kiểm tra cơ bản: độ dài, loại ký tự
-- [ ] Phát hiện pattern: lặp (`aaa`, `111`), chuỗi bàn phím (`qwerty`)
-- [ ] Kiểm tra dictionary word (common password list)
-- [ ] Tính điểm strength (0–100)
-- [ ] Trả về mức độ: Yếu / Trung bình / Mạnh / Rất mạnh
+- [X] Kiểm tra cơ bản: độ dài, loại ký tự
+- [X] Phát hiện pattern: lặp (`aaa`, `111`), chuỗi bàn phím (`qwerty`)
+- [X] Kiểm tra dictionary word (common password list)
+- [X] Tính điểm strength (0–100)
+- [X] Trả về mức độ: Yếu / Trung bình / Mạnh / Rất mạnh
 
 ---
 
@@ -36,8 +36,8 @@
 ---
 
 ## 📊 Bước 4: Trực quan hóa độ mạnh (Ngày 7) [Kim Anh]
-- [ ] In thanh tiến độ: `█████░░░░` theo điểm
-- [ ] Màu: đỏ (yếu), vàng (trung bình), xanh (mạnh)
+- [X] In thanh tiến độ: `█████░░░░` theo điểm
+- [X] Màu: đỏ (yếu), vàng (trung bình), xanh (mạnh)
 - [ ] Checklist yêu cầu (có chữ hoa, ký tự đặc biệt…)
 - [ ] Ước lượng thời gian bẻ mật khẩu (dựa entropy)
 
@@ -72,7 +72,7 @@
 | Ngày      | Nhiệm vụ                          | Người phụ trách | Tiến độ |
 |-----------|-----------------------------------|-----------------|---------|
 | 1 – 2     | Bước 1: Chiến lược sinh mật khẩu  | Tuấn Anh        | [ ]     |
-| 3 – 4     | Bước 2: Thuật toán chấm điểm      | Kim Anh         | [ ]     |
+| 3 – 4     | Bước 2: Thuật toán chấm điểm      | Kim Anh         | [X]     |
 | 5 – 6     | Bước 3: Lưu trữ an toàn           | Tuấn Anh        | [ ]     |
 | 7         | Bước 4: Trực quan hóa độ mạnh     | Kim Anh         | [ ]     |
 | 8 – 9     | Bước 5: Kiểm tra rò rỉ            | Tuấn Anh        | [ ]     |

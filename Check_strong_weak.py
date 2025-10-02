@@ -5,11 +5,13 @@ COMMON_PASSWORDS = ["123456", "password", "qwerty", "admin", "letmein",
                     "12345678", "password1", "123456789", "welcome", "111111"]
 
 KEYBOARD_PATTERNS = ["qwerty", "asdf", "zxcv", "1234", "abcd"]
-
+de_nham = "01lI"
 def random_password(length = 12) :
     characters = string.ascii_letters + string.digits + string.punctuation
+    characters = ''.join(c for c in characters if c not in de_nham)
     password = ''.join(secrets.choice(characters) for i in range(length))
     return password
+
 
 def KiemTraDoDai(password: str, common_passwords: list) -> tuple:
     score = 0
@@ -55,6 +57,9 @@ def KiemTraDoDai(password: str, common_passwords: list) -> tuple:
         level = "🔒 Mật khẩu rất mạnh !! 🚀"
 
     return score, level
+# 2. Kiem tra ki tu (Chu hoa, Chu thuong, so, Ky tu dac biet)
+
+
 
 
 def hien_thi_progress(score: int, length: int = 20) -> str:
@@ -64,11 +69,12 @@ def hien_thi_progress(score: int, length: int = 20) -> str:
 
 if __name__ == "__main__":
     # Sinh mật khẩu ngẫu nhiên
-    random_password = random_password(16)  # Mật khẩu dài 16 ký tự
-    print(f"Mật khẩu ngẫu nhiên: {random_password}")
+    random_pwd = random_password(16)  # Mật khẩu dài 16 ký tự
+    print(f"Mật khẩu ngẫu nhiên: {random_pwd}")
 # Chạy thử
 if __name__ == "__main__":
     pwd = input("Nhập mật khẩu:")
+
     score, level = KiemTraDoDai(pwd, COMMON_PASSWORDS)
     print(hien_thi_progress(score))
     print(f"Đánh giá: {level}")

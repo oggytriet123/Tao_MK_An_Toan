@@ -1,8 +1,15 @@
+import secrets
+import string
+
 COMMON_PASSWORDS = ["123456", "password", "qwerty", "admin", "letmein",
                     "12345678", "password1", "123456789", "welcome", "111111"]
 
 KEYBOARD_PATTERNS = ["qwerty", "asdf", "zxcv", "1234", "abcd"]
 
+def random_password(length = 12) :
+    characters = string.ascii_letters + string.digits + string.punctuation
+    password = ''.join(secrets.choice(characters) for i in range(length))
+    return password
 
 def KiemTraDoDai(password: str, common_passwords: list) -> tuple:
     score = 0
@@ -55,7 +62,10 @@ def hien_thi_progress(score: int, length: int = 20) -> str:
     bar = "█" * filled + "░" * (length - filled)
     return f"[{bar}] {score}/100"
 
-
+if __name__ == "__main__":
+    # Sinh mật khẩu ngẫu nhiên
+    random_password = random_password(16)  # Mật khẩu dài 16 ký tự
+    print(f"Mật khẩu ngẫu nhiên: {random_password}")
 # Chạy thử
 if __name__ == "__main__":
     pwd = input("Nhập mật khẩu:")

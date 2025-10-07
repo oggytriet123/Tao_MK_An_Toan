@@ -25,7 +25,7 @@
 ---
 
 ## 🔒 Bước 3: Lưu trữ an toàn (Ngày 5–6) [Tuấn Anh]
-- [ ] Yêu cầu Master Password khi mở vault
+- [X] Yêu cầu Master Password khi mở vault
 - [ ] Sinh key bằng PBKDF2/Argon2 + muối + nhiều vòng lặp
 - [ ] Mã hóa dữ liệu bằng AES-256 (thư viện `cryptography`)
 - [ ] Cấu trúc file JSON (salt, iterations, encrypted_data)

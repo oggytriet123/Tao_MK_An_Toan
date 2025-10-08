@@ -7,12 +7,13 @@ import base64
 import getpass
 
 SPECIAL = "!@#$%^&*()_"
-COMMON_PASSWORDS = ["123456", "password", "qwerty", "admin", "letmein",
-                    "12345678", "password1", "123456789", "welcome", "111111"]
+COMMON_PASSWORDS = [
+    "123456", "password", "qwerty", "admin", "letmein",
+    "12345678", "password1", "123456789", "welcome", "111111"
+]
 KEYBOARD_PATTERNS = ["qwerty", "asdf", "zxcv", "1234", "abcd"]
 DE_NHAM = "01lI"
 MASTER_FILE = "master.hash"
-
 
 # ------------------------------
 # Gợi ý mật khẩu thông minh
@@ -36,14 +37,12 @@ def suggest_smart(password: str, num_suggestions=3):
             suggestions.append(pattern)
     return suggestions
 
-
 # ------------------------------
 # Tạo mật khẩu ngẫu nhiên
 # ------------------------------
 def random_password(length=16):
     characters = ''.join(c for c in string.ascii_letters + string.digits + string.punctuation if c not in DE_NHAM)
     return ''.join(secrets.choice(characters) for _ in range(length))
-
 
 # ------------------------------
 # Kiểm tra độ mạnh mật khẩu
@@ -81,5 +80,33 @@ def kiem_tra_do_dai(password: str, common_passwords: list) -> tuple:
     else:
         return score, "🔒 Mật khẩu rất mạnh !! 🚀", "Mật khẩu này rất mạnh! 🚀"
 
+# ------------------------------
+# Tạo mật khẩu theo mẫu
+# ------------------------------
+def tao_mat_khau_theo_mau(mau: str, length=12):
+    base = {
+        "email": "Mail",
+        "nganhang": "Bank",
+        "facebook": "Fb",
+        "zalo": "Zalo",
+        "github": "GH"
+    }
 
+    prefix = base.get(mau.lower(), "User")
+    charset = ''.join(c for c in string.ascii_letters + string.digits + SPECIAL if c not in DE_NHAM)
+    suffix = ''.join(secrets.choice(charset) for _ in range(length - len(prefix)))
+    return prefix + suffix
 
+# ------------------------------
+# Phân tích batch passwords
+# ------------------------------
+def phan_tich_batch(passwords: list):
+    results = []
+    for pw in passwords:
+        score, level, _ = kiem_tra_do_dai(pw, COMMON_PASSWORDS)
+        results.append({
+            "password": pw,
+            "score": score,
+            "level": level
+        })
+    return results

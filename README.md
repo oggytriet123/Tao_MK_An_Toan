@@ -1,78 +1,57 @@
-# Tao_MK_An_Toan
-# 🗓 Roadmap 10 ngày – Công cụ kiểm tra & quản lý mật khẩu an toàn (Python)
+# 🔐 Trình Tạo Mật Khẩu An Toàn
 
-## ✅ Nguyên tắc
--  Làm từng bước theo thứ tự
-- Code nhỏ trước, gom lại sau
-- Test mỗi phần trước khi sang bước kế tiếp
+Ứng dụng dòng lệnh giúp người dùng tạo, kiểm tra, lưu trữ và quản lý mật khẩu một cách bảo mật. Dự án sử dụng mã hóa AES-GCM, xác thực bằng Master Password, và hỗ trợ xuất/nhập dữ liệu để sao lưu hoặc phục hồi vault.
 
 ---
 
-## 🔑 Bước 1: Chiến lược sinh mật khẩu (Ngày 1–2) [Tuấn Anh]
-- [x] Viết code sinh mật khẩu random với `secrets.choice`
-- [x] Thêm option: chữ hoa, chữ thường, số, ký tự đặc biệt
-- [x] Loại bỏ ký tự dễ nhầm (0,O,1,l,I)
+## 🧩 Tính năng nổi bật
+
+- 🔐 Tạo mật khẩu ngẫu nhiên mạnh
+- 📊 Kiểm tra độ mạnh của mật khẩu và gợi ý cải thiện
+- 📁 Quản lý vault lưu trữ mật khẩu (xem, thêm, xóa)
+- 🧩 Tạo mật khẩu theo mẫu (email, ngân hàng, mạng xã hội…)
+- 📈 Phân tích hàng loạt mật khẩu
+- 🛡 Đổi Master Password
+- 📤 Xuất/Nhập dữ liệu từ file `.txt`
 
 ---
 
-## 🛡 Bước 2: Thuật toán chấm điểm độ mạnh (Ngày 3–4) [Kim Anh]
-- [X] Kiểm tra cơ bản: độ dài, loại ký tự
-- [X] Phát hiện pattern: lặp (`aaa`, `111`), chuỗi bàn phím (`qwerty`)
-- [X] Kiểm tra dictionary word (common password list)
-- [X] Tính điểm strength (0–100)
-- [X] Trả về mức độ: Yếu / Trung bình / Mạnh / Rất mạnh
-
+## 🗂 Cấu trúc thư mục
+Tao_MK_An_Toan/
+├── main.py                  # Giao diện dòng lệnh chính
+├── master_manager.py        # Quản lý Master Password
+├── vault_manager.py         # Mã hóa và quản lý vault
+├── password_tool.py         # Tạo và kiểm tra mật khẩu
+├── strength_analyzer.py     # Phân tích độ mạnh mật khẩu
+├── README.md                # Tài liệu mô tả dự án
+│
+├── vault/                   # (tùy chọn) chứa file vault
+├── gui_app/                 # (tùy chọn) giao diện người dùng
+├── utils/                   # Các tiện ích phụ trợ
+└── __pycache__/             # File cache của Python
 ---
 
-## 🔒 Bước 3: Lưu trữ an toàn (Ngày 5–6) [Tuấn Anh]
-- [X] Yêu cầu Master Password khi mở vault
-- [ ] Sinh key bằng PBKDF2/Argon2 + muối + nhiều vòng lặp
-- [ ] Mã hóa dữ liệu bằng AES-256 (thư viện `cryptography`)
-- [ ] Cấu trúc file JSON (salt, iterations, encrypted_data)
-- [ ] Đảm bảo không lưu plaintext password
+## ⚙️ Cách sử dụng
 
----
+### 1. Cài đặt thư viện cần thiết
 
-## 📊 Bước 4: Trực quan hóa độ mạnh (Ngày 7) [Kim Anh]
-- [X] In thanh tiến độ: `█████░░░░` theo điểm
-- [X] Màu: đỏ (yếu), vàng (trung bình), xanh (mạnh)
-- [ ] Checklist yêu cầu (có chữ hoa, ký tự đặc biệt…)
-- [ ] Ước lượng thời gian bẻ mật khẩu (dựa entropy)
+```bash
+pip install cryptography
+## ⚙️ Cách sử dụng
 
----
+### 1. Chạy chương trình
+Dòng lệnh thông thường:
+```bash
+python main.py
+🔐 Bảo mật
 
-## 🌐 Bước 5: Kiểm tra rò rỉ (Ngày 8–9) [ Tuấn Anh]
-- [ ] Hash mật khẩu bằng SHA-1
-- [ ] Gửi 5 ký tự đầu hash tới API HaveIBeenPwned
-- [ ] So khớp local với kết quả trả về
-- [ ] Offline mode: kiểm tra với local breach list
-- [ ] Cache kết quả để tránh gọi API nhiều lần
+Mật khẩu được mã hóa bằng AES-GCM.
 
----
+Master Password được xác thực bằng PBKDF2.
 
-## 🧩 Ngày 10: Gom lại chương trình [Kim Anh]
-- [ ] Xây menu chính:
-  1. Tạo mật khẩu mới
-  2. Kiểm tra độ mạnh mật khẩu
-  3. Quản lý mật khẩu đã lưu
-  4. Tạo mật khẩu theo mẫu
-  5. Phân tích batch passwords
-  6. Cài đặt bảo mật
-  7. Xuất/Nhập dữ liệu
-  8. Thoát
-- [ ] Gom code các phần trước thành tool hoàn chỉnh
-- [ ] Viết báo cáo mô tả thuật toán + demo kết quả
+Vault lưu dưới dạng JSON, không lưu mật khẩu thô.
+📤 Xuất/Nhập dữ liệu
 
----
+Xuất: Tạo file vault_export.txt chứa danh sách mật khẩu đã giải mã.
 
-# 📅 Timeline thực hiện (10 ngày)
-
-| Ngày      | Nhiệm vụ                          | Người phụ trách | Tiến độ |
-|-----------|-----------------------------------|-----------------|---------|
-| 1 – 2     | Bước 1: Chiến lược sinh mật khẩu  | Tuấn Anh        | [x]     |
-| 3 – 4     | Bước 2: Thuật toán chấm điểm      | Kim Anh         | [X]     |
-| 5 – 6     | Bước 3: Lưu trữ an toàn           | Tuấn Anh        | [ ]     |
-| 7         | Bước 4: Trực quan hóa độ mạnh     | Kim Anh         | [ ]     |
-| 8 – 9     | Bước 5: Kiểm tra rò rỉ            | Tuấn Anh        | [ ]     |
-| 10        | Gom lại chương trình + báo cáo    | Kim Anh         | [ ]     |
-
+Nhập: Đọc từ file vault_export.txt và lưu lại vào vault.

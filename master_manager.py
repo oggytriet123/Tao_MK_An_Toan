@@ -1,4 +1,5 @@
-import os, json, base64, getpass
+import os, json, base64
+from tkinter import simpledialog, messagebox
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.ciphers.aead import AESGCM
@@ -6,10 +7,10 @@ from cryptography.hazmat.primitives.ciphers.aead import AESGCM
 MASTER_FILE = "master_vault.json"
 
 def setup_master():
-    password = getpass.getpass("🔐 Tạo Master Password mới: ")
-    confirm = getpass.getpass("🔁 Nhập lại để xác nhận: ")
-    if password != confirm:
-        print("❌ Mật khẩu không khớp. Thử lại.")
+    password = simpledialog.askstring("Tạo Master Password", "🔐 Nhập mật khẩu mới:", show="*")
+    confirm = simpledialog.askstring("Xác nhận", "🔁 Nhập lại mật khẩu:", show="*")
+    if not password or not confirm or password != confirm:
+        messagebox.showerror("Lỗi", "❌ Mật khẩu không khớp hoặc bị bỏ trống.")
         return False
 
     salt = os.urandom(16)
@@ -35,12 +36,12 @@ def setup_master():
     with open(MASTER_FILE, "w") as f:
         json.dump(data, f, indent=4)
 
-    print("✅ Master Password đã được tạo!\n")
+    messagebox.showinfo("Thành công", "✅ Master Password đã được tạo!")
     return True
 
 def verify_master():
     if not os.path.exists(MASTER_FILE):
-        print("⚠️ Chưa có Master Password. Đang tạo mới...")
+        messagebox.showinfo("Thông báo", "⚠️ Chưa có Master Password. Đang tạo mới...")
         return setup_master()
 
     with open(MASTER_FILE, "r") as f:
@@ -51,7 +52,9 @@ def verify_master():
     nonce = base64.b64decode(data["nonce"])
     encrypted = base64.b64decode(data["encrypted"])
 
-    password = getpass.getpass("🔐 Nhập Master Password để mở vault: ")
+    password = simpledialog.askstring("Xác thực", "🔐 Nhập Master Password để mở vault:", show="*")
+    if not password:
+        return False
 
     kdf = PBKDF2HMAC(
         algorithm=hashes.SHA256(),
@@ -64,10 +67,9 @@ def verify_master():
         aesgcm = AESGCM(key)
         decrypted = aesgcm.decrypt(nonce, encrypted, None)
         if decrypted == b"MASTER_OK":
-            print("✅ Xác thực thành công!\n")
             return True
     except Exception:
-        print("❌ Sai Master Password! Không thể truy cập vault.\n")
+        messagebox.showerror("Lỗi", "❌ Sai Master Password! Không thể truy cập vault.")
         return False
 
 def get_key_from_master():
@@ -82,7 +84,9 @@ def get_key_from_master():
     nonce = base64.b64decode(data["nonce"])
     encrypted = base64.b64decode(data["encrypted"])
 
-    password = getpass.getpass("🔐 Nhập lại Master Password để lấy key: ")
+    password = simpledialog.askstring("Xác thực", "🔐 Nhập lại Master Password để lấy key:", show="*")
+    if not password:
+        return None
 
     kdf = PBKDF2HMAC(
         algorithm=hashes.SHA256(),
@@ -97,18 +101,18 @@ def get_key_from_master():
         if decrypted == b"MASTER_OK":
             return key
     except Exception:
-        print("🚫 Sai mật khẩu, không thể tạo key.")
+        messagebox.showerror("Lỗi", "🚫 Sai mật khẩu, không thể tạo key.")
         return None
+
 
 def change_master_password():
     if not verify_master():
         return
 
-    print("🔄 Đổi Master Password")
-    new_master = getpass.getpass("Nhập Master Password mới: ")
-    confirm = getpass.getpass("Xác nhận lại: ")
-    if new_master != confirm:
-        print("❌ Mật khẩu mới không khớp!")
+    new_master = simpledialog.askstring("Đổi mật khẩu", "🔄 Nhập Master Password mới:", show="*")
+    confirm = simpledialog.askstring("Xác nhận", "🔁 Nhập lại mật khẩu mới:", show="*")
+    if not new_master or not confirm or new_master != confirm:
+        messagebox.showerror("Lỗi", "❌ Mật khẩu mới không khớp hoặc bị bỏ trống.")
         return
 
     salt = os.urandom(16)
@@ -134,4 +138,6 @@ def change_master_password():
     with open(MASTER_FILE, "w") as f:
         json.dump(data, f, indent=4)
 
-    print("✅ Master Password đã được đổi thành công!\n")
+    messagebox.showinfo("Thành công", "✅ Master Password đã được đổi thành công!")
+
+    

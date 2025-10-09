@@ -83,6 +83,7 @@ Dữ liệu trong file sẽ được nhập và lưu vào vault.
 
 
 4. Các tệp và chức năng
+
 ✔ main.py:
 Chương trình chính cung cấp giao diện dòng lệnh cho người dùng, nơi bạn có thể sử dụng tất cả các tính năng của ứng dụng như tạo mật khẩu, kiểm tra độ mạnh, quản lý vault, và xuất nhập dữ liệu.
 

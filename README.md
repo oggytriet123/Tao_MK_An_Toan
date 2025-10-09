@@ -41,6 +41,7 @@ Dòng lệnh thông thường:
 🎃 python main.py 🎃
 
 🔐 Bảo mật
+
 --Mật khẩu được mã hóa bằng AES-GCM.
 
 --Master Password được xác thực bằng PBKDF2.
@@ -53,6 +54,7 @@ Dòng lệnh thông thường:
 
 --Nhập: Đọc từ file vault_export.txt và lưu lại vào vault.
 
+
 2. Các tính năng chính
    
 🔑 Tạo mật khẩu ngẫu nhiên mạnh
@@ -61,7 +63,7 @@ Dòng lệnh thông thường:
 
 🎃 python main.py generate-password 🎃
 
---Mật khẩu ngẫu nhiên sẽ được tạo và hiển thị trên màn hình. Bạn có thể chỉ định độ dài và loại ký tự muốn sử dụng (chữ hoa, chữ thường, số, ký tự đặc biệt) thông qua tham số của lệnh.
+Mật khẩu ngẫu nhiên sẽ được tạo và hiển thị trên màn hình. Bạn có thể chỉ định độ dài và loại ký tự muốn sử dụng (chữ hoa, chữ thường, số, ký tự đặc biệt) thông qua tham số của lệnh.
 
 --Ví dụ, để tạo mật khẩu có độ dài 16 ký tự và bao gồm chữ hoa, chữ thường, số và ký tự đặc biệt:
 
@@ -117,7 +119,7 @@ Nhập dữ liệu: Nếu bạn có một file .txt chứa mật khẩu cần nh
 Dữ liệu trong file sẽ được nhập và lưu vào vault.
 
 
-4. Các tệp và chức năng
+3. Các tệp và chức năng
 
 ✔ main.py:
 
@@ -156,7 +158,7 @@ Thư mục chứa mã nguồn cho phiên bản giao diện người dùng (nếu
 Chứa các tiện ích hỗ trợ khác như các hàm mã hóa và giải mã, các thao tác file.
 
 
-6. Lưu ý bảo mật
+4. Lưu ý bảo mật
    
 --Mật khẩu chủ (Master Password) là chìa khóa quan trọng để truy cập vào vault. Đảm bảo rằng bạn sử dụng một mật khẩu mạnh và lưu giữ nó một cách an toàn.
 

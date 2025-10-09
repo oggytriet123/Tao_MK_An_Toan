@@ -90,9 +90,7 @@ Các mật khẩu sẽ được lưu trữ trong vault. Để thêm mật khẩu
 
 Để xóa mật khẩu khỏi vault: 
 
-      🎃 python main.py remove-password 
-
-      service "Tên dịch vụ" 
+      🎃 python main.py remove-password service "Tên dịch vụ" 
 
 
 🔒 Đổi Master Password

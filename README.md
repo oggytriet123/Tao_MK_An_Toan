@@ -33,12 +33,12 @@ Tao_MK_An_Toan/
 ###  Cài đặt thư viện cần thiết
 
 
-🎃 pip install cryptography 🎃
+      🎃 pip install cryptography 
 
 ### 1. Chạy chương trình
 Dòng lệnh thông thường:
 
-🎃 python main.py 🎃
+      🎃 python main.py 
 
 🔐 Bảo mật
 
@@ -61,19 +61,19 @@ Dòng lệnh thông thường:
 
 --Để tạo một mật khẩu ngẫu nhiên mạnh, bạn có thể sử dụng lệnh sau:
 
-🎃 python main.py generate-password 🎃
+      🎃 python main.py generate-password 
 
 Mật khẩu ngẫu nhiên sẽ được tạo và hiển thị trên màn hình. Bạn có thể chỉ định độ dài và loại ký tự muốn sử dụng (chữ hoa, chữ thường, số, ký tự đặc biệt) thông qua tham số của lệnh.
 
 --Ví dụ, để tạo mật khẩu có độ dài 16 ký tự và bao gồm chữ hoa, chữ thường, số và ký tự đặc biệt:
 
-🎃 python main.py generate-password --length 16 --symbols --numbers --upper 🎃
+      🎃 python main.py generate-password --length 16 --symbols --numbers --upper 
    
 🔍 Kiểm tra độ mạnh của mật khẩu
 
 --Để kiểm tra mật khẩu của bạn và nhận gợi ý cải thiện, sử dụng lệnh sau:
 
-🎃 python main.py check-password "mật khẩu của bạn" 🎃
+      🎃 python main.py check-password "mật khẩu của bạn" 
 
 Ứng dụng sẽ phân tích độ mạnh của mật khẩu và đưa ra các khuyến nghị nếu cần thiết.
 
@@ -82,24 +82,24 @@ Mật khẩu ngẫu nhiên sẽ được tạo và hiển thị trên màn hình
 
 Các mật khẩu sẽ được lưu trữ trong vault. Để thêm mật khẩu mới vào vault, sử dụng lệnh sau:
 
-🎃 python main.py add-password --service "Tên dịch vụ" --password "Mật khẩu" 🎃
+      🎃 python main.py add-password --service "Tên dịch vụ" --password "Mật khẩu" 
 
 Để xem các mật khẩu đã lưu trong vault: 
 
-🎃 python main.py show-vault 🎃
+      🎃 python main.py show-vault 
 
 Để xóa mật khẩu khỏi vault: 
 
-🎃 python main.py remove-password 
+      🎃 python main.py remove-password 
 
-service "Tên dịch vụ" 🎃
+      service "Tên dịch vụ" 
 
 
 🔒 Đổi Master Password
 
 Để thay đổi Master Password (mật khẩu chủ), sử dụng lệnh sau:
 
-🎃 python main.py change-master-password 🎃
+      🎃 python main.py change-master-password 
 
 Ứng dụng sẽ yêu cầu bạn nhập Master Password hiện tại và mật khẩu mới.
 
@@ -108,13 +108,13 @@ service "Tên dịch vụ" 🎃
 
 Xuất dữ liệu: Bạn có thể xuất tất cả mật khẩu đã lưu trong vault ra một file .txt với lệnh sau:
 
-🎃 python main.py export-vault --file vault_export.txt 🎃
+      🎃 python main.py export-vault --file vault_export.txt 
 
 File xuất ra sẽ chứa danh sách mật khẩu đã được giải mã.
 
 Nhập dữ liệu: Nếu bạn có một file .txt chứa mật khẩu cần nhập vào vault, sử dụng lệnh sau:
 
-🎃 python main.py import-vault --file vault_export.txt 🎃
+      🎃 python main.py import-vault --file vault_export.txt 
 
 Dữ liệu trong file sẽ được nhập và lưu vào vault.
 

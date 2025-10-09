@@ -31,6 +31,8 @@ Tao_MK_An_Toan/
 ## ⚙️ Cách sử dụng
 
 ###  Cài đặt thư viện cần thiết
+
+
 --------------------------------pip install cryptography-------------------------------
 
 ### 1. Chạy chương trình
@@ -49,7 +51,9 @@ Dòng lệnh thông thường:
 2. Các tính năng chính
 🔑 Tạo mật khẩu ngẫu nhiên mạnh
 --Để tạo một mật khẩu ngẫu nhiên mạnh, bạn có thể sử dụng lệnh sau:
+
 -------------------------------------------python main.py generate-password-----------------------------------------
+
 --Mật khẩu ngẫu nhiên sẽ được tạo và hiển thị trên màn hình. Bạn có thể chỉ định độ dài và loại ký tự muốn sử dụng (chữ hoa, chữ thường, số, ký tự đặc biệt) thông qua tham số của lệnh.
 --Ví dụ, để tạo mật khẩu có độ dài 16 ký tự và bao gồm chữ hoa, chữ thường, số và ký tự đặc biệt:
 -----------------------------------------------------python main.py generate-password --length 16 --symbols --numbers --upper---------------------------
